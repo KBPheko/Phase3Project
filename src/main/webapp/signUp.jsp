@@ -7,26 +7,23 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>Login with details</h2>
+<h2>Create your sporty account</h2>
 ${requestScope.msg}
 <button  onclick="location.href='index.jsp'">Back</button> <br>
-<form action="signIn" method="post">
+<form action="signUp" method="post">
+<label>Full Name</label> :
+<input type="text" name="fullname"> <br> <br>
 <label>Email</label> :
 <input type="text" name="emailid"> <br> <br>
 <label>Password</label> :
 <input type="password" name="password"> <br> <br>
-<!-- 
-Still need to fix
-<label>Role</label> :
-<select name="role">
-  <option>Select Role</option>
-  <option name="role" value="customer">Customer</option>
-  <option name="role" value="admin">Admin</option>
-</select> <br> <br>-->
-<button type="submit" >sign in</button> |
+<label>User Role</label>
+<input type="radio" name="role" value="admin">Admin
+<input type="radio" name="role" value="customer">Customer <br> <br>
+<button type="submit" >Create</button> |
 <button type="reset" >reset fields</button> 
 </form>
 <br>
-<p>Dont't have an account?</p> <a href="signUp.jsp">Sign Up</a>
+<p>Have an account already?</p> <a href="login.jsp">Sign In</a>
 </body>
 </html>

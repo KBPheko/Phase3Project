@@ -18,8 +18,8 @@ public class UserService {
 		if(user.getRole().equals("admin")) {
 			return "Can't Register Admin Role. Admin details already assigned";
 		} else {
-			Optional<User> res = userRepo.findById(user.getEmailid());
-			if(res.isPresent()) {
+			Optional<User> result = userRepo.findById(user.getEmailid());
+			if(result.isPresent()) {
 				return "Email address must be unique. \n Try again with a different email!";
 			} else {
 				userRepo.save(user);
@@ -29,13 +29,13 @@ public class UserService {
 	}
 	
 	public String signIn(User user) {
-		User usr = userRepo.checkUsers(user.getEmailid(), user.getPassword());
-		if(usr.getRole().equals("admin")) {
-			return "admin has logged in";
-		} else if(usr.getRole().equals("customer")) {
-			return "customer has logged in";
-		} else {
+		User usr = userRepo.checkLoginDetails(user.getEmailid(), user.getPassword());
+		if(usr == null) {
 			return "failure";
+		} else if(usr.getRole().equals("admin")) {
+			return "admin success";
+		} else {
+			return "customer success";
 		}
 	}
 }

@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h2>Admin</h2>
+<button  onclick="location.href='login.jsp'">Logout</button> <br>
 
+${requestScope.msg}
 </body>
 </html>

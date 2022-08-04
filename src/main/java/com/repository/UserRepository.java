@@ -10,6 +10,6 @@ import com.bean.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, String>{
 	
-	@Query("select u from User u where u.emailid = :emailid and u.password = :password")
-	public User checkUsers(@Param("emailid") String emailid, @Param("password") String password);
+	@Query("select r from User r where r.emailid = :emailid and r.password = :password")
+	public User checkLoginDetails(@Param("emailid") String emailid, @Param("password") String password);
 }
