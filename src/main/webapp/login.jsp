@@ -7,9 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<div class="center" style="width:800px; margin:0 auto;">
 <h2>Login with details</h2>
 ${requestScope.msg}
-<button  onclick="location.href='index.jsp'">Back</button> <br>
+<button  onclick="location.href='index.jsp'">Back</button> <br> <br>
+
 <form action="signIn" method="post">
 <label>Email</label> :
 <input type="text" name="emailid"> <br> <br>
@@ -28,5 +31,8 @@ Still need to fix
 </form>
 <br>
 <p>Dont't have an account?</p> <a href="signUp.jsp">Sign Up</a>
+</div>
+
+
 </body>
 </html>
