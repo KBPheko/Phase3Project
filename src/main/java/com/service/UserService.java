@@ -1,5 +1,6 @@
 package com.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,4 +39,21 @@ public class UserService {
 			return "customer success";
 		}
 	}
+	
+	//return customers
+	public List<User> displayAllRegisteredUsers(String roleName){
+		List<User> listOfRegCustomers = userRepo.checkRegisteredCustomers(roleName);
+		
+		return  listOfRegCustomers;
+		
+	}
+	
+	//return searched user
+	public List<User> searchUser(String keyword) {
+		if(keyword != null) {
+			return userRepo.searchUser(keyword);
+		}
+		return userRepo.findAll();
+	}
+	
 }

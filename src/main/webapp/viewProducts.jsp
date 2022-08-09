@@ -10,7 +10,8 @@
 <body>
 <h2>All Products In Stock</h2>
 <button onclick="location.href='adminDashboard.jsp'">Back</button> <br> <br>
-
+ <button onclick="location.href='storeProduct.jsp'">Add Product</button> |
+       <button class="btn-primary" onclick="">Update Product Details</button>  <br> <br>
         <table style="border: 1px solid black; margin:auto ;" width="100%">
             <tr>
                 <th># Product ID</th>

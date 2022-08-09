@@ -9,7 +9,7 @@
 <body>
 ${requestScope.msg }
 <h2>Add New Product</h2>
-<button onclick="location.href='adminDashboard.jsp'">Back</button> <br> <br>
+<button onclick="location.href='displayAllProduct'">Back</button> <br> <br>
 <form action="storeProduct" method="post">
 
 <label>Product Name</label>

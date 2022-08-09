@@ -1,5 +1,7 @@
 package com.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -77,4 +79,35 @@ public class UserController {
 		
 		return mav;
 	}
+	
+	@RequestMapping(value = "displayUsers",method = RequestMethod.GET)
+	public ModelAndView displayAllCustomers() {
+		List<User> listOfUsers = us.displayAllRegisteredUsers("customer");
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("listOfUsers", listOfUsers);
+		mav.setViewName("displayUsers.jsp");
+		
+		return mav;
+	}
+	
+	@RequestMapping(value = "searchResults",method = RequestMethod.GET)
+	public ModelAndView displaySearchedUser(HttpServletRequest req) {
+		String keyword = req.getParameter("keyword");
+		
+		List<User> users = us.searchUser(keyword);
+		ModelAndView mav = new ModelAndView();
+		boolean ans = users.isEmpty();
+		if(ans == true) {
+			mav.addObject("msg", "Search result for '"+keyword+"' not found!");
+			mav.setViewName("displayUsers.jsp");
+			
+		} else {
+			mav.addObject("searchResults", users);
+			//mav.addObject("search", keyword);
+			mav.setViewName("displayUsers.jsp");
+		}
+		return mav;
+	}
+	
 }
