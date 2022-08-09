@@ -24,6 +24,9 @@ public class ProductService {
 	}
 	
 	public List<Product> findProductByCategory(String category){
-		return productRepository.findProductByCategory(category);
+		if(category != null) {
+			return productRepository.findProductByCategory(category);
+		}
+		return productRepository.findAll();
 	}
 }

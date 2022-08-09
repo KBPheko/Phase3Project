@@ -12,8 +12,7 @@ import com.bean.Product;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Integer> {
 
-	@Query("select p from Product p where p.category = :category")
-	public List<Product> findProductByCategory(@Param("category") String category);
-    
+	@Query("select p from Product p where concat(p.category, ' ', p.color, ' ', p.brand) LIKE %?1%")
+	public List<Product> findProductByCategory(@Param("keyword") String keyword);
 	
 }

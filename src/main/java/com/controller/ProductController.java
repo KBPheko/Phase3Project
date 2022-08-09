@@ -57,4 +57,17 @@ public class ProductController {
 		
 		return mav;
 	}
+	
+	@RequestMapping(value = "displaySearch",method = RequestMethod.GET)
+	public ModelAndView getProductByCategory(HttpServletRequest req) {
+		String keyword = req.getParameter("keyword");
+		
+		List<Product> listOfSearchResults = productService.findProductByCategory(keyword);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("listOfFilteredProduct", listOfSearchResults);
+		mav.setViewName("viewProducts.jsp");
+		
+		return mav;
+	}
 }

@@ -98,6 +98,7 @@ public class UserController {
 		List<User> users = us.searchUser(keyword);
 		ModelAndView mav = new ModelAndView();
 		boolean ans = users.isEmpty();
+		
 		if(ans == true) {
 			mav.addObject("msg", "Search result for '"+keyword+"' not found!");
 			mav.setViewName("displayUsers.jsp");
