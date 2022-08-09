@@ -8,7 +8,7 @@
 <title>Registered Customers/Shoppers</title>
 </head>
 <body>
-<h2>Registered Customers</h2>
+<h2>List of all registered customers</h2>
 <button onclick="location.href='adminDashboard.jsp'">Back</button> <br> <br>
 
 <form action="searchResults" method="get">
@@ -26,16 +26,6 @@
 <!-- display search results -->
 
   <core:forEach items="${requestScope.searchResults}" var="usr">
-  
-    <!--   <core:if test="${requestScope.searchResults != null}">
-         <ul>
-          <li> <core:out value="${usr.fullname}"></core:out> - <b> <core:out value="${usr.emailid }"></core:out> </b> </li>
-         </ul>
-         
-      </core:if>
-      <core:if test="${requestScope.searchResults == null }">
-        <p> ${requestScope.msg} </p>
-      </core:if>  -->
       
       <core:choose>
           <core:when test="${requestScope.searchResults != null}">
@@ -44,7 +34,8 @@
              </ul>
           </core:when>
           <core:otherwise>
-             <p> ${requestScope.msg} </p>
+            <core:out value="No data"></core:out>
+             No such users
           </core:otherwise>
       </core:choose>
        
