@@ -9,7 +9,9 @@
 </head>
 <body style="">
 <h2 style="color: blue">${requestScope.msg}</h2> 
-<button  onclick="location.href='login.jsp'">Logout</button> <br>
+<button  onclick="location.href='login.jsp'">Logout</button> |
+<button>Update Password</button>
+ <br>
 
 <div class="containers">
  <div class="row">
@@ -20,7 +22,7 @@
     </div>
     <div class="coloumn" >
        <p>Manage Users: </p>
-       <button onclick="location.href='displayUsers'">Users</button> |
+       <button onclick="location.href='displayUsers'">Display all customers</button> 
     </div>
     
     <div class="coloumn" >

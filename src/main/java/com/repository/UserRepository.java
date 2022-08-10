@@ -22,6 +22,7 @@ public interface UserRepository extends JpaRepository<User, String>{
 	//search user
 	//@Query("select s from User s where s.emailid = :emailid")
 	@Query("select s from User s where concat(s.fullname, ' ', s.emailid) LIKE %?1%")
-	//@Query("select * from User s s.fullname like %:keyword% or s.emailid like %:keyword%")
 	public List<User> searchUser(@Param("keyword") String keyword);
+	
+	
 }

@@ -12,7 +12,9 @@ import com.bean.Product;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Integer> {
 
-	@Query("select p from Product p where concat(p.category, ' ', p.color, ' ', p.brand) LIKE %?1%")
+	//sort by product name, color, brand, and category
+	@Query("select p from Product p where concat(p.category, ' ', p.color, ' ', p.brand, ' ', p.pname) LIKE %?1%")
 	public List<Product> findProductByCategory(@Param("keyword") String keyword);
+	
 	
 }

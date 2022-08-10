@@ -29,4 +29,12 @@ public class ProductService {
 		}
 		return productRepository.findAll();
 	}
+	
+	public Product get(int pid) {
+		return productRepository.findById(pid).get();
+	}
+	
+	public void delete(int pid) {
+		productRepository.deleteById(pid);
+	}
 }

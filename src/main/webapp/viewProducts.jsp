@@ -33,6 +33,7 @@
                 <th>Price</th>
                 <th>Color</th>
                 <th>Quantity</th>
+                <th>Action</th>
             </tr>
 
 <core:forEach items="${requestScope.listOfFilteredProduct}" var="product">
@@ -47,14 +48,31 @@
                 <td> <core:out value="${product.price }"></core:out> </td>
                 <td> <core:out value="${product.color }"></core:out> </td>
                 <td> <core:out value="${product.quantity }"></core:out> </td>
+                <td> <input type="button" value="Edit"> | <input type="button" value="Delete"> </td>
               
+            </tr>
+</core:forEach>
+<core:forEach items="${requestScope.listOfProduct}" var="product">
+
+            <tr>
+            
+                <td> <core:out value="${product.pid }"></core:out> </td>
+                <td> <img alt="product-image" src="${product.imageurl }" height="100px" width="100px"> </td>
+                <td> <core:out value="${product.pname }"></core:out> </td>
+                <td> <core:out value="${product.category }"></core:out> </td>
+                <td> <core:out value="${product.brand }"></core:out> </td>
+                <td> <core:out value="${product.size }"></core:out> </td>
+                <td> <core:out value="${product.price }"></core:out> </td>
+                <td> <core:out value="${product.color }"></core:out> </td>
+                <td> <core:out value="${product.quantity }"></core:out> </td>
+                <td> <input type="button" value="Edit"> | <input type="button" value="Delete"> </td>
             </tr>
 </core:forEach>
         </table>
 
 <!-- Displayed all unfiltered table -->
 
-        <table style="border: 1px solid black; margin:auto ;" width="100%">
+<!--       <table style="border: 1px solid black; margin:auto ;" width="100%">
             <tr>
                 <th># Product ID</th>
                 <th>Image</th>
@@ -65,6 +83,7 @@
                 <th>Price</th>
                 <th>Color</th>
                 <th>Quantity</th>
+                <th>Action</th>
             </tr>
 <core:forEach items="${requestScope.listOfProduct}" var="product">
 
@@ -79,11 +98,11 @@
                 <td> <core:out value="${product.price }"></core:out> </td>
                 <td> <core:out value="${product.color }"></core:out> </td>
                 <td> <core:out value="${product.quantity }"></core:out> </td>
-              
+                <td> <input type="button" value="Edit"> | <input type="button" value="Delete"> </td>
             </tr>
 </core:forEach>
         </table>
-   
+   -->
 
 </body>
 </html>

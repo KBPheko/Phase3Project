@@ -70,4 +70,13 @@ public class ProductController {
 		
 		return mav;
 	}
+	
+	//update product
+	public ModelAndView updateProduct(HttpServletRequest req, int pid) {
+		Product prod = productService.get(pid);
+		
+		ModelAndView mav = new ModelAndView();
+		
+		return mav;
+	}
 }
