@@ -30,6 +30,16 @@ public class ProductService {
 		return productRepository.findAll();
 	}
 	
+	public List<Product> findWomenCategory(String category){
+		if(category == "WOMEN") {
+			if(category != null) {
+				return productRepository.displayWomen(category);
+			} 
+		}
+		
+		return productRepository.findAll();
+	}
+	
 	public Product get(int pid) {
 		return productRepository.findById(pid).get();
 	}

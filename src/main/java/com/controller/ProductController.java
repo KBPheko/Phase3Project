@@ -1,6 +1,7 @@
 package com.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -48,6 +49,7 @@ public class ProductController {
 		return mav;
 	}
 	
+	//Admin Dashboard
 	@RequestMapping(value = "displayAllProduct",method = RequestMethod.GET)
 	public ModelAndView getAllProduct() {
 		List<Product> listOfProduct = productService.findAllProduct();
@@ -58,18 +60,53 @@ public class ProductController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "displaySearch",method = RequestMethod.GET)
-	public ModelAndView getProductByCategory(HttpServletRequest req) {
-		String keyword = req.getParameter("keyword");
-		
-		List<Product> listOfSearchResults = productService.findProductByCategory(keyword);
-		
+	//Admin dashboard
+		@RequestMapping(value = "displaySearch",method = RequestMethod.GET)
+		public ModelAndView getProductByCategory(HttpServletRequest req) {
+			String keyword = req.getParameter("keyword");
+			
+			List<Product> listOfSearchResults = productService.findProductByCategory(keyword);
+			
+			ModelAndView mav = new ModelAndView();
+			mav.addObject("listOfFilteredProduct", listOfSearchResults);
+			mav.setViewName("viewProducts.jsp");
+			
+			return mav;
+		}
+	
+	//display products to customers
+	@RequestMapping(value = "displayProductCatalogue")
+	public ModelAndView loadProducts() {
+		List<Product> listOfProduct = productService.findAllProduct();
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("listOfFilteredProduct", listOfSearchResults);
-		mav.setViewName("viewProducts.jsp");
+		mav.addObject("listOfProduct", listOfProduct);
+		mav.setViewName("customerDashboard.jsp");
 		
 		return mav;
 	}
+	
+	//customer dashboard
+	@RequestMapping(value = "/customerDashboard.jsp")
+	public ModelAndView displayCatalogue() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("customerDashboard.jsp");
+		return mav;
+	}
+	
+	//Customer Dashboard
+	@RequestMapping(value = "displayUserSearch",method = RequestMethod.GET)
+	public ModelAndView displayByUserSearch(HttpServletRequest req) {
+		String usersearch = req.getParameter("userinput");
+		
+		List<Product> userSearchresults = productService.findProductByCategory(usersearch);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("userSearchResults", userSearchresults);
+		mav.setViewName("customerDashboard.jsp");
+		
+		return mav;
+	}
+	
 	
 	//update product
 	public ModelAndView updateProduct(HttpServletRequest req, int pid) {
