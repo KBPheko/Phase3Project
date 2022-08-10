@@ -6,12 +6,25 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<style type="text/css">
+table, th, td {
+  border: 1px solid black;
+  border-color: #96D4D4;
+  border-collapse: collapse;
+}
+
+body{
+margin: 5%;
+}
+
+</style>
+
 </head>
 <body>
 <h2>All Products In Stock</h2>
 <button onclick="location.href='adminDashboard.jsp'">Back</button> <br> <br>
 <button onclick="location.href='storeProduct.jsp'">Add Product</button> |
-<button class="btn-primary" onclick="">Update Product Details</button>  <br> <br>
+<button class="btn-primary" onclick="location.href='editProduct.jsp'">Update Product Details</button>  <br> <br>
 
 <!-- Filter products -->
 <form action="displaySearch" method="get">
@@ -22,8 +35,8 @@
 </form> <br> <br>
 
 <!-- Display table of all filtered products -->
-        <table style="border: 1px solid black; margin:auto ;" width="100%">
-            <tr>
+        <table style="border: 1px solid black ;" width="100%">
+            <tr style="border: 1px solid black">
                 <th># Product ID</th>
                 <th>Image</th>
                 <th>Name</th>
@@ -37,7 +50,7 @@
             </tr>
 
 <core:forEach items="${requestScope.listOfFilteredProduct}" var="product">
-            <tr>
+            <tr style="border: 1px solid black">
             
                 <td> <core:out value="${product.pid }"></core:out> </td>
                 <td> <img alt="product-image" src="${product.imageurl }" height="100px" width="100px"> </td>
@@ -48,10 +61,12 @@
                 <td> <core:out value="${product.price }"></core:out> </td>
                 <td> <core:out value="${product.color }"></core:out> </td>
                 <td> <core:out value="${product.quantity }"></core:out> </td>
-                <td> <input type="button" value="Edit"> | <input type="button" value="Delete"> </td>
+                <td> <input type="button" value="Delete"> </td>
               
             </tr>
 </core:forEach>
+
+<!-- All products -->
 <core:forEach items="${requestScope.listOfProduct}" var="product">
 
             <tr>
@@ -65,7 +80,7 @@
                 <td> <core:out value="${product.price }"></core:out> </td>
                 <td> <core:out value="${product.color }"></core:out> </td>
                 <td> <core:out value="${product.quantity }"></core:out> </td>
-                <td> <input type="button" value="Edit"> | <input type="button" value="Delete"> </td>
+                <td> <a href="${pageContext.request.contextPath }/displayAllProduct/delete/${product.pid}" onclick="return confirm('Are you sure?')">Delete</a> </td>
             </tr>
 </core:forEach>
         </table>

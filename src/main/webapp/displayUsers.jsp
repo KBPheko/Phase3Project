@@ -6,6 +6,11 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Registered Customers/Shoppers</title>
+<style type="text/css">
+body{
+margin: 2%;
+}
+</style>
 </head>
 <body>
 <h2>List of all registered customers</h2>

@@ -5,7 +5,11 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Admin Dashboard</title>
-
+<style type="text/css">
+body{
+margin: 2%;
+}
+</style>
 </head>
 <body style="">
 <h2 style="color: blue">${requestScope.msg}</h2> 

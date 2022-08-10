@@ -4,9 +4,11 @@ import java.util.List;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -107,13 +109,38 @@ public class ProductController {
 		return mav;
 	}
 	
+	//Admin Dashboard
+	//Edit product
+	@RequestMapping(value = "editProduct",method = RequestMethod.POST)
+	public ModelAndView updateProduct(HttpServletRequest req, Product prod) {
+		int pid = Integer.parseInt(req.getParameter("pid"));
+		String brand = req.getParameter("brand");
+		String color = req.getParameter("color");
+		int size = Integer.parseInt(req.getParameter("size"));
+		float price = Float.parseFloat(req.getParameter("price"));
+		int quantity = Integer.parseInt(req.getParameter("quantity"));
+		
+		prod.setPid(pid);
+		prod.setBrand(brand);
+		prod.setColor(color);
+		prod.setSize(size);
+		prod.setPrice(price);
+		prod.setQuantity(quantity);
+		
+		String res = productService.updateProduct(prod);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("msg", res);
+		mav.setViewName("editProduct.jsp");
+		
+		return mav;
+	}
 	
-	//update product
-	public ModelAndView updateProduct(HttpServletRequest req, int pid) {
-		Product prod = productService.get(pid);
+	@RequestMapping(value = "delete/{id}",method = RequestMethod.GET)
+	public ModelAndView deleteProduct(@PathVariable("id") int id) {
+	    productService.delete(id);
 		
 		ModelAndView mav = new ModelAndView();
-		
+		mav.setViewName("viewProducts.jsp");
 		return mav;
 	}
 }
