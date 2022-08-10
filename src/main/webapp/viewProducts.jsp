@@ -61,7 +61,7 @@ margin: 5%;
                 <td> <core:out value="${product.price }"></core:out> </td>
                 <td> <core:out value="${product.color }"></core:out> </td>
                 <td> <core:out value="${product.quantity }"></core:out> </td>
-                <td> <input type="button" value="Delete"> </td>
+                <td> <a type="button" href="${pageContext.request.contextPath }/displayAllProduct/delete/${product.pid}" onclick="return confirm('Are you sure?')">Delete</a> </td>
               
             </tr>
 </core:forEach>
@@ -80,7 +80,7 @@ margin: 5%;
                 <td> <core:out value="${product.price }"></core:out> </td>
                 <td> <core:out value="${product.color }"></core:out> </td>
                 <td> <core:out value="${product.quantity }"></core:out> </td>
-                <td> <a href="${pageContext.request.contextPath }/displayAllProduct/delete/${product.pid}" onclick="return confirm('Are you sure?')">Delete</a> </td>
+                <td> <a type="button" href="${pageContext.request.contextPath }/displayAllProduct/delete/${product.pid}" onclick="return confirm('Are you sure?')">Delete</a> </td>
             </tr>
 </core:forEach>
         </table>
