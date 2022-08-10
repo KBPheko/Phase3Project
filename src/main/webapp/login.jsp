@@ -5,19 +5,31 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<style type="text/css">
+body{
+background: #e6f0fc;
+color: black;
+font-family: monospace;
+margin: 10%;
+}
+
+.input{
+background: white;
+}
+</style>
 </head>
 <body>
 
-<div class="center" style="width:800px; margin:0 auto;">
+<div align="center">
 <h2>Login with details</h2>
 ${requestScope.msg}
 <button  onclick="location.href='index.jsp'">Back</button> <br> <br>
 
 <form action="signIn" method="post">
 <label>Email</label> :
-<input type="text" name="emailid"> <br> <br>
+<input class="input" type="text" name="emailid"> <br> <br>
 <label>Password</label> :
-<input type="password" name="password"> <br> <br>
+<input class="input" type="password" name="password"> <br> <br>
 <!-- 
 Still need to fix
 <label>Role</label> :

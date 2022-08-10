@@ -56,4 +56,17 @@ public class UserService {
 		return userRepo.findAll();
 	}
 	
+	//update password
+	public String updatePassword(User user) {
+		Optional<User> res = userRepo.findById(user.getEmailid()); //unique identification
+		if(res.isPresent()) {
+			User u = res.get();
+			u.setPassword(user.getPassword());
+			userRepo.saveAndFlush(u);
+			return "Password updated!";
+		} else {
+			return "No such emailid";
+		}
+	}
+	
 }

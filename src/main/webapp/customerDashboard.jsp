@@ -7,6 +7,17 @@
 <meta charset="ISO-8859-1">
 <title>Customer Dashboard</title>
 <style type="text/css">
+
+body{
+background: #e6f0fc;
+color: black;
+font-family: monospace;
+margin: 4%;
+}
+.input{
+background: white;
+}
+
 .product-container{
     padding: 0 10vw;
     display: flex;
@@ -111,10 +122,10 @@
 ${requestScope.msg}
 <nav class="navbar">
 <div class="nav">
-  <h3>Welcome to Sporty Shoes Dot Com </h3>
+  <h3>Sporty Shoes Dot Com</h3>
   <div class="nav-items">
     <div class="search">
-        <input type="text"value="${userinput}" class="search-box"  placeholder="search brand, product, etc">
+        <input type="text" value="${userinput}" class="search-box"  placeholder="search brand, product, etc">
         <input type="submit" value="Filter"> 
     </div>
   </div>
@@ -136,7 +147,6 @@ ${requestScope.msg}
         <div class="product-image">
          <span></span>
          <img alt="" class="product-thumb" src="${product.imageurl }">
-         <button>Add to wish list</button> |
          <button onclick="location.href='addToCart.jsp'">Add to cart</button>
         </div>
        <div class="product-info">
@@ -153,7 +163,6 @@ ${requestScope.msg}
         <div class="product-image">
          <span></span>
          <img alt="" class="product-thumb" src="${searchRes.imageurl }">
-         <button>Add to wish list</button> |
          <button onclick="location.href='...'">Add to cart</button>
         </div>
        <div class="product-info">

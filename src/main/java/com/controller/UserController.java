@@ -52,7 +52,7 @@ public class UserController {
 			mav.addObject("msg", "Incorrect emailid or password");
 			mav.setViewName("login.jsp");
 		} else if(result.equals("admin success")) {
-			mav.addObject("msg", "Welcome to home page admin");
+			mav.addObject("msg", "Hi, "+usr.getEmailid());
 			mav.setViewName("adminDashboard.jsp");
 		} else {
 			mav.addObject("msg", "Hi, "+usr.getEmailid());
@@ -108,6 +108,22 @@ public class UserController {
 			//mav.addObject("search", keyword);
 			mav.setViewName("displayUsers.jsp");
 		}
+		return mav;
+	}
+	
+	@RequestMapping(value = "updatePassword",method = RequestMethod.POST)
+	public ModelAndView updatePassword(HttpServletRequest req, User user) {
+		String emailid = req.getParameter("emailid");
+		String password = req.getParameter("password");
+		
+		user.setEmailid(emailid);
+		user.setPassword(password);
+		
+		String result = us.updatePassword(user);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("msg", result);
+		mav.setViewName("updatePassword.jsp");
+		
 		return mav;
 	}
 	

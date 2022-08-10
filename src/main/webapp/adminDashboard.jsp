@@ -7,14 +7,18 @@
 <title>Admin Dashboard</title>
 <style type="text/css">
 body{
+background: #e6f0fc;
+color: black;
+font-family: monospace;
 margin: 2%;
 }
 </style>
 </head>
-<body style="">
-<h2 style="color: blue">${requestScope.msg}</h2> 
+<body>
+<h1>Admin Dashboard</h1>
+<h4 style="color: blue">${requestScope.msg}</h4> 
 <button  onclick="location.href='login.jsp'">Logout</button> |
-<button>Update Password</button>
+<button onclick="location.href='updatePassword.jsp'">Update Password</button>
  <br>
 
 <div class="containers">

@@ -6,9 +6,17 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 <style type="text/css">
-div{
-margin: 2%;
+
+body{
+background: #e6f0fc;
+color: black;
+font-family: monospace;
+margin: 10%;
 }
+.input{
+background: white;
+}
+
 </style>
 </head>
 <body>

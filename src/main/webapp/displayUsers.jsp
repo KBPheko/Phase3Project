@@ -8,7 +8,14 @@
 <title>Registered Customers/Shoppers</title>
 <style type="text/css">
 body{
+background: #e6f0fc;
+color: black;
+font-family: monospace;
 margin: 2%;
+}
+
+.input{
+background: white;
 }
 </style>
 </head>

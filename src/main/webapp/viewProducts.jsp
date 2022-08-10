@@ -14,7 +14,13 @@ table, th, td {
 }
 
 body{
+background: #e6f0fc;
+color: black;
+font-family: monospace;
 margin: 5%;
+}
+.input{
+background: white;
 }
 
 </style>
@@ -24,7 +30,7 @@ margin: 5%;
 <h2>All Products In Stock</h2>
 <button onclick="location.href='adminDashboard.jsp'">Back</button> <br> <br>
 <button onclick="location.href='storeProduct.jsp'">Add Product</button> |
-<button class="btn-primary" onclick="location.href='editProduct.jsp'">Update Product Details</button>  <br> <br>
+<button onclick="location.href='editProduct.jsp'">Update Product Details</button>  <br> <br>
 
 <!-- Filter products -->
 <form action="displaySearch" method="get">
